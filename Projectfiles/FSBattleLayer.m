@@ -161,6 +161,15 @@ int const MAGIC_AREA = 50;
         [self addChild:markerCurrent];
         if(currentCommand >= [magicCommand.magicPointer count]-1) {
             //最終要素なら攻撃！
+            
+            // 攻撃によるパラメータ変更
+            // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
+            // MPを消費する
+            player.mp -= magicCommand.useMp;
+            
+            // パラメータ変更が入ったのでViewのユーザステータスを更新
+            [self updatePlayerStatus];
+            
             CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
             particle.position = ccp(200, 0);
             [self addChild:particle];
@@ -200,6 +209,15 @@ int const MAGIC_AREA = 50;
     [self initPlayerStatus];
     currentCommand=0;
     // 暫定的にかわずたんのターン
+    
+    // 攻撃によるパラメータ変更
+    // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
+    // それっぽくダメージを食らう
+    player.hp -= 10;
+    
+    // パラメータ変更が入ったのでViewのユーザステータスを更新
+    [self updatePlayerStatus];
+    
     CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_reaf_attack.plist"];
     particle.position = ccp(450, 300);
     [self addChild:particle];
@@ -229,13 +247,13 @@ int const MAGIC_AREA = 50;
 -(void) initPlayerStatus
 {
     [self updatePlayerStatus];
-    [self addChild:hpLabel];
-    [self addChild:mpLabel];
-    [self addChild:msLabel];
 }
 
 -(void) updatePlayerStatus
 {
+    [self removeChild:hpLabel cleanup:TRUE];
+    [self removeChild:mpLabel cleanup:TRUE];
+    [self removeChild:msLabel cleanup:TRUE];
     CCDirector* director = [CCDirector sharedDirector];
     float fontSize = (director.currentDeviceIsIPad) ? 48 : 28;
     // 体力
@@ -262,22 +280,23 @@ int const MAGIC_AREA = 50;
                                  fontSize:fontSize];
     msLabel.position = ccp(100, 550);
     // 属性
-    
+    [self addChild:hpLabel];
+    [self addChild:mpLabel];
+    [self addChild:msLabel];
 }
 
 -(void) initSkillStatus
 {
     [self updateSkillStatus];
-    [self addChild:skillTypeLabel];
-    [self addChild:skillNameLabel];
-    [self addChild:skillDetailLabel];
-    [self addChild:attackPointLabel];
-    [self addChild:useMpLabel];
-    
 }
 
 -(void) updateSkillStatus
 {
+    [self removeChild:skillTypeLabel cleanup:TRUE];
+    [self removeChild:skillNameLabel cleanup:TRUE];
+    [self removeChild:skillDetailLabel cleanup:TRUE];
+    [self removeChild:attackPointLabel cleanup:TRUE];
+    [self removeChild:useMpLabel cleanup:TRUE];
     CCDirector* director = [CCDirector sharedDirector];
     float fontSize = (director.currentDeviceIsIPad) ? 28 : 14;
     // 属性
@@ -326,6 +345,11 @@ int const MAGIC_AREA = 50;
                                           fontSize:fontSize];
     useMpLabel.position = ccp(100, 250);
     
+    [self addChild:skillTypeLabel];
+    [self addChild:skillNameLabel];
+    [self addChild:skillDetailLabel];
+    [self addChild:attackPointLabel];
+    [self addChild:useMpLabel];
 }
 
 -(void) updateTurnStatus
