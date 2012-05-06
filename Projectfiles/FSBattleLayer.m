@@ -43,7 +43,11 @@ int const MAGIC_AREA = 50;
         // プレーヤの状態を初期化
         [self updatePlayerStatus];
 		// play sound with CocosDenshion's SimpleAudioEngine
-		//[[SimpleAudioEngine sharedEngine] playEffect:@"Pow.caf"];
+        
+        // ステージの音をならしてみる
+        // 暫定的にたわしさんの音楽を拝借w
+        // refs: http://www.kawaz.org/commons/816/
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"TTN-STGBRAST!-prot.mp3"];
         
 
 	}
@@ -142,6 +146,10 @@ int const MAGIC_AREA = 50;
         particle.position = ccp(p.x + (MAGIC_AREA /2), p.y + (MAGIC_AREA /2));
         [self addChild:particle];
         
+        // SE再生
+        // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
+        // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_kagayaku01.mp3
+        [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_kagayaku01.mp3"];
         // マーカー書き換え
         CCSprite* markerCurrent = [CCSprite spriteWithFile: @"selected.png"];
         CCSprite* current = [magicPointer objectAtIndex:currentCommand];
@@ -153,6 +161,10 @@ int const MAGIC_AREA = 50;
             CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
             particle.position = ccp(200, 0);
             [self addChild:particle];
+            // SE再生
+            // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
+            // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_hosikuzu01.mp3
+            [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_hosikuzu01.mp3"];
             [self performSelector:@selector(effectWater)
              // パーティクルが終わってから
              // 呼ばれる引数なしメソッドの例

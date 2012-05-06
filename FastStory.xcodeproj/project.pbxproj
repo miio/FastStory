@@ -25,6 +25,9 @@
 		2A5ECA8E1555AF1900A81D0D /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA8C1555AF1900A81D0D /* selected.png */; };
 		2A5ECA91155693B200A81D0D /* FSUserSkillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECA90155693B200A81D0D /* FSUserSkillModel.m */; };
 		2A5ECAA115569D9B00A81D0D /* FSSkillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECAA015569D9A00A81D0D /* FSSkillModel.m */; };
+		2A7BFB8E1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */; };
+		2A7BFB8F1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */; };
+		2A7BFB911556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -112,6 +115,9 @@
 		2A5ECA90155693B200A81D0D /* FSUserSkillModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserSkillModel.m; sourceTree = "<group>"; };
 		2A5ECA9F15569D9A00A81D0D /* FSSkillModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSkillModel.h; sourceTree = "<group>"; };
 		2A5ECAA015569D9A00A81D0D /* FSSkillModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSkillModel.m; sourceTree = "<group>"; };
+		2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ta_ta_hosikuzu01.mp3; sourceTree = "<group>"; };
+		2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ta_ta_kagayaku01.mp3; sourceTree = "<group>"; };
+		2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "TTN-STGBRAST!-prot.mp3"; sourceTree = "<group>"; };
 		DC1BE68614F417CC00F49D25 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		DC1BE68914F417CC00F49D25 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
@@ -401,6 +407,9 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */,
+				2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */,
+				2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */,
 				2A5ECA8B1555AF1900A81D0D /* unselect.png */,
 				2A5ECA8C1555AF1900A81D0D /* selected.png */,
 				2A5ECA891555A9C400A81D0D /* Battle1.jpg */,
@@ -545,6 +554,9 @@
 				2A5ECA8A1555A9C400A81D0D /* Battle1.jpg in Resources */,
 				2A5ECA8D1555AF1900A81D0D /* unselect.png in Resources */,
 				2A5ECA8E1555AF1900A81D0D /* selected.png in Resources */,
+				2A7BFB8E1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 in Resources */,
+				2A7BFB8F1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 in Resources */,
+				2A7BFB911556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
