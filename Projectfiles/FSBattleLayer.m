@@ -294,13 +294,20 @@ int const MAGIC_AREA = 50;
     // 攻撃力
     NSString* attackPoint = @"AttackPoint:";
     attackPoint = [attackPoint stringByAppendingString: [NSString stringWithFormat:@"%d", magicCommand.attackPoint]];
-    CCLabelTTF* attackPointLabel = nil;
-    
     attackPointLabel = [CCLabelTTF labelWithString:attackPoint
                                         fontName:@"Ubuntu-C.ttf" 
                                         fontSize:fontSize];
     attackPointLabel.position = ccp(100, 300);
     [self addChild:attackPointLabel];
+    
+    // 使用MP
+    NSString* useMp = @"UseMP:";
+    useMp = [useMp stringByAppendingString: [NSString stringWithFormat:@"%d", magicCommand.useMp]];    
+    useMpLabel = [CCLabelTTF labelWithString:useMp
+                                          fontName:@"Ubuntu-C.ttf" 
+                                          fontSize:fontSize];
+    useMpLabel.position = ccp(100, 250);
+    [self addChild:useMpLabel];
     
 }
 

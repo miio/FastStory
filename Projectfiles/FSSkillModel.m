@@ -9,7 +9,7 @@
 #import "FSSkillModel.h"
 
 @implementation FSSkillModel
-@synthesize skillType, skillLevel, attackPoint, skillName, skillDetail, magicPointer;
+@synthesize skillType, skillLevel, attackPoint, skillName, skillDetail, magicPointer,useMp;
 
 -(id) init
 {
@@ -19,6 +19,7 @@
         skillType = 0; // TODO: enumにする
         skillLevel = 1;
         attackPoint = 50;
+        useMp = 50;
         skillName = @"ウォーターサークル";
         skillDetail = @"水の渦巻きによる攻撃！";
         magicPointer = [[NSArray alloc] initWithObjects:[NSValue valueWithCGPoint:CGPointMake(300, 200)],

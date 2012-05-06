@@ -24,6 +24,7 @@
         skill1.skillName = @"ファイアーサークル";
         skill1.skillDetail = @"火の渦巻きによる攻撃！";
         skill1.attackPoint = 50;
+        skill1.useMp = 50;
         skill1.magicPointer = [[NSArray alloc] initWithObjects:[NSValue valueWithCGPoint:CGPointMake(560, 340)],
                                        [NSValue valueWithCGPoint:CGPointMake(350, 250)],
                                        [NSValue valueWithCGPoint:CGPointMake(460, 450)],
@@ -36,6 +37,7 @@
         skill2.skillName = @"リーフサークル";
         skill2.skillDetail = @"草の渦巻きによる攻撃！";
         skill2.attackPoint = 50;
+        skill2.useMp = 50;
         skill2.magicPointer = [[NSArray alloc] initWithObjects:[NSValue valueWithCGPoint:CGPointMake(340, 560)],
                                [NSValue valueWithCGPoint:CGPointMake(200, 400)],
                                [NSValue valueWithCGPoint:CGPointMake(410, 320)],

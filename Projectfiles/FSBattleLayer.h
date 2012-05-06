@@ -18,6 +18,7 @@
     CCLabelTTF* skillNameLabel;
     CCLabelTTF* skillDetailLabel;
     CCLabelTTF* attackPointLabel;
+    CCLabelTTF* useMpLabel;
     
 
 }
