@@ -250,7 +250,7 @@ int const MAGIC_AREA = 50;
     // 属性
     NSString* skillType = @"SkillType:";
     skillType = [skillType stringByAppendingString: [NSString stringWithFormat:@"%d", magicCommand.skillType]];
-    CCLabelTTF* skillTypeLabel = nil;
+
     
     skillTypeLabel = [CCLabelTTF labelWithString:skillType
                                  fontName:@"Ubuntu-C.ttf" 
@@ -260,7 +260,7 @@ int const MAGIC_AREA = 50;
     // スキル名
     NSString* skillName = @"SkillName:";
     skillName = [skillType stringByAppendingString: magicCommand.skillName];
-    CCLabelTTF* skillNameLabel = nil;
+
     
     skillNameLabel = [CCLabelTTF labelWithString:skillName
                                         fontName:@"HiraKakuProN-W3" 
@@ -271,7 +271,7 @@ int const MAGIC_AREA = 50;
     // スキル詳細
     NSString* skillDetail = @"SkillDetail:";
     skillDetail = [skillDetail stringByAppendingString: magicCommand.skillDetail];
-    CCLabelTTF* skillDetailLabel = nil;
+
     
     skillDetailLabel = [CCLabelTTF labelWithString:skillDetail
                                         fontName:@"HiraKakuProN-W3" 

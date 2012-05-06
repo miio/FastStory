@@ -14,6 +14,11 @@
     FSSkillModel* magicCommand;
     int currentCommand;
     NSMutableArray* magicPointer;
+    CCLabelTTF* skillTypeLabel;
+    CCLabelTTF* skillNameLabel;
+    CCLabelTTF* skillDetailLabel;
+    CCLabelTTF* attackPointLabel;
+    
 
 }
 extern int const MAGIC_AREA;
