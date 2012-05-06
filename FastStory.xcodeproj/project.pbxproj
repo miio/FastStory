@@ -14,20 +14,19 @@
 		2A5ECA7215554F4700A81D0D /* FSPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECA7115554F4700A81D0D /* FSPlayerController.m */; };
 		2A5ECA7515554F6100A81D0D /* FSPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECA7415554F6100A81D0D /* FSPlayerModel.m */; };
 		2A5ECA7C1555506C00A81D0D /* FSBattlePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECA7B1555506C00A81D0D /* FSBattlePlayerController.m */; };
-		2A5ECA7E1555857400A81D0D /* magic_particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA7D1555857400A81D0D /* magic_particle.plist */; };
-		2A5ECA80155587B300A81D0D /* magic_particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA7F155587B300A81D0D /* magic_particle.plist */; };
-		2A5ECA8215558AFD00A81D0D /* magic_success.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA8115558AFC00A81D0D /* magic_success.plist */; };
-		2A5ECA841555924400A81D0D /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA831555924400A81D0D /* enemy.png */; };
-		2A5ECA861555953100A81D0D /* magic_reaf_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA851555953100A81D0D /* magic_reaf_attack.plist */; };
-		2A5ECA881555A6B600A81D0D /* magic_water_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA871555A6B600A81D0D /* magic_water_attack.plist */; };
-		2A5ECA8A1555A9C400A81D0D /* Battle1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA891555A9C400A81D0D /* Battle1.jpg */; };
-		2A5ECA8D1555AF1900A81D0D /* unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA8B1555AF1900A81D0D /* unselect.png */; };
-		2A5ECA8E1555AF1900A81D0D /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5ECA8C1555AF1900A81D0D /* selected.png */; };
 		2A5ECA91155693B200A81D0D /* FSUserSkillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECA90155693B200A81D0D /* FSUserSkillModel.m */; };
 		2A5ECAA115569D9B00A81D0D /* FSSkillModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5ECAA015569D9A00A81D0D /* FSSkillModel.m */; };
 		2A7BFB8E1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */; };
 		2A7BFB8F1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */; };
 		2A7BFB911556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */; };
+		2A7BFB961556D29B00B93E03 /* magic_success.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB921556D29B00B93E03 /* magic_success.plist */; };
+		2A7BFB971556D29B00B93E03 /* magic_water_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB931556D29B00B93E03 /* magic_water_attack.plist */; };
+		2A7BFB981556D29B00B93E03 /* magic_reaf_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB941556D29B00B93E03 /* magic_reaf_attack.plist */; };
+		2A7BFB991556D29B00B93E03 /* magic_particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB951556D29B00B93E03 /* magic_particle.plist */; };
+		2A7BFB9C1556D2AC00B93E03 /* unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB9A1556D2AC00B93E03 /* unselect.png */; };
+		2A7BFB9D1556D2AC00B93E03 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB9B1556D2AC00B93E03 /* selected.png */; };
+		2A7BFB9F1556D2CC00B93E03 /* Battle1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB9E1556D2CC00B93E03 /* Battle1.jpg */; };
+		2A7BFBA11556D2E100B93E03 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFBA01556D2E100B93E03 /* enemy.png */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -102,15 +101,6 @@
 		2A5ECA7415554F6100A81D0D /* FSPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPlayerModel.m; sourceTree = "<group>"; };
 		2A5ECA7A1555506C00A81D0D /* FSBattlePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBattlePlayerController.h; sourceTree = "<group>"; };
 		2A5ECA7B1555506C00A81D0D /* FSBattlePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBattlePlayerController.m; sourceTree = "<group>"; };
-		2A5ECA7D1555857400A81D0D /* magic_particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = magic_particle.plist; path = ../../../../../Desktop/magic_particle.plist; sourceTree = "<group>"; };
-		2A5ECA7F155587B300A81D0D /* magic_particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = magic_particle.plist; path = ../../../../../Desktop/magic_particle.plist; sourceTree = "<group>"; };
-		2A5ECA8115558AFC00A81D0D /* magic_success.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = magic_success.plist; path = ../../../../../Desktop/magic_success.plist; sourceTree = "<group>"; };
-		2A5ECA831555924400A81D0D /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy.png; path = ../../../../../Downloads/enemy.png; sourceTree = "<group>"; };
-		2A5ECA851555953100A81D0D /* magic_reaf_attack.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = magic_reaf_attack.plist; path = ../../../../../Desktop/magic_reaf_attack.plist; sourceTree = "<group>"; };
-		2A5ECA871555A6B600A81D0D /* magic_water_attack.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = magic_water_attack.plist; path = ../../../../../Desktop/magic_water_attack.plist; sourceTree = "<group>"; };
-		2A5ECA891555A9C400A81D0D /* Battle1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Battle1.jpg; path = ../../../../../Downloads/Battle1.jpg; sourceTree = "<group>"; };
-		2A5ECA8B1555AF1900A81D0D /* unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselect.png; path = ../../../../../Desktop/unselect.png; sourceTree = "<group>"; };
-		2A5ECA8C1555AF1900A81D0D /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = ../../../../../Desktop/selected.png; sourceTree = "<group>"; };
 		2A5ECA8F155693B200A81D0D /* FSUserSkillModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserSkillModel.h; sourceTree = "<group>"; };
 		2A5ECA90155693B200A81D0D /* FSUserSkillModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserSkillModel.m; sourceTree = "<group>"; };
 		2A5ECA9F15569D9A00A81D0D /* FSSkillModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSkillModel.h; sourceTree = "<group>"; };
@@ -118,6 +108,14 @@
 		2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ta_ta_hosikuzu01.mp3; sourceTree = "<group>"; };
 		2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ta_ta_kagayaku01.mp3; sourceTree = "<group>"; };
 		2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "TTN-STGBRAST!-prot.mp3"; sourceTree = "<group>"; };
+		2A7BFB921556D29B00B93E03 /* magic_success.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic_success.plist; sourceTree = "<group>"; };
+		2A7BFB931556D29B00B93E03 /* magic_water_attack.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic_water_attack.plist; sourceTree = "<group>"; };
+		2A7BFB941556D29B00B93E03 /* magic_reaf_attack.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic_reaf_attack.plist; sourceTree = "<group>"; };
+		2A7BFB951556D29B00B93E03 /* magic_particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic_particle.plist; sourceTree = "<group>"; };
+		2A7BFB9A1556D2AC00B93E03 /* unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselect.png; sourceTree = "<group>"; };
+		2A7BFB9B1556D2AC00B93E03 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
+		2A7BFB9E1556D2CC00B93E03 /* Battle1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Battle1.jpg; sourceTree = "<group>"; };
+		2A7BFBA01556D2E100B93E03 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		DC1BE68614F417CC00F49D25 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		DC1BE68914F417CC00F49D25 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
@@ -407,18 +405,17 @@
 		DCC1A39413A94F1A005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A7BFBA01556D2E100B93E03 /* enemy.png */,
+				2A7BFB9E1556D2CC00B93E03 /* Battle1.jpg */,
+				2A7BFB9A1556D2AC00B93E03 /* unselect.png */,
+				2A7BFB9B1556D2AC00B93E03 /* selected.png */,
+				2A7BFB921556D29B00B93E03 /* magic_success.plist */,
+				2A7BFB931556D29B00B93E03 /* magic_water_attack.plist */,
+				2A7BFB941556D29B00B93E03 /* magic_reaf_attack.plist */,
+				2A7BFB951556D29B00B93E03 /* magic_particle.plist */,
 				2A7BFB901556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 */,
 				2A7BFB8C1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 */,
 				2A7BFB8D1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 */,
-				2A5ECA8B1555AF1900A81D0D /* unselect.png */,
-				2A5ECA8C1555AF1900A81D0D /* selected.png */,
-				2A5ECA891555A9C400A81D0D /* Battle1.jpg */,
-				2A5ECA871555A6B600A81D0D /* magic_water_attack.plist */,
-				2A5ECA851555953100A81D0D /* magic_reaf_attack.plist */,
-				2A5ECA831555924400A81D0D /* enemy.png */,
-				2A5ECA8115558AFC00A81D0D /* magic_success.plist */,
-				2A5ECA7F155587B300A81D0D /* magic_particle.plist */,
-				2A5ECA7D1555857400A81D0D /* magic_particle.plist */,
 				DCC1A39513A94F1A005BD75D /* config.lua */,
 				DC275D2A13B27DBF009C5098 /* Pow.caf */,
 				DC485B4713AA194F00F2BC70 /* ship.png */,
@@ -545,18 +542,17 @@
 				DC1BE6AA14F417CC00F49D25 /* UbuntuMono-BI.ttf in Resources */,
 				DC1BE6AB14F417CC00F49D25 /* UbuntuMono-R.ttf in Resources */,
 				DC1BE6AC14F417CC00F49D25 /* UbuntuMono-RI.ttf in Resources */,
-				2A5ECA7E1555857400A81D0D /* magic_particle.plist in Resources */,
-				2A5ECA80155587B300A81D0D /* magic_particle.plist in Resources */,
-				2A5ECA8215558AFD00A81D0D /* magic_success.plist in Resources */,
-				2A5ECA841555924400A81D0D /* enemy.png in Resources */,
-				2A5ECA861555953100A81D0D /* magic_reaf_attack.plist in Resources */,
-				2A5ECA881555A6B600A81D0D /* magic_water_attack.plist in Resources */,
-				2A5ECA8A1555A9C400A81D0D /* Battle1.jpg in Resources */,
-				2A5ECA8D1555AF1900A81D0D /* unselect.png in Resources */,
-				2A5ECA8E1555AF1900A81D0D /* selected.png in Resources */,
 				2A7BFB8E1556D1F900B93E03 /* ta_ta_hosikuzu01.mp3 in Resources */,
 				2A7BFB8F1556D1F900B93E03 /* ta_ta_kagayaku01.mp3 in Resources */,
 				2A7BFB911556D20200B93E03 /* TTN-STGBRAST!-prot.mp3 in Resources */,
+				2A7BFB961556D29B00B93E03 /* magic_success.plist in Resources */,
+				2A7BFB971556D29B00B93E03 /* magic_water_attack.plist in Resources */,
+				2A7BFB981556D29B00B93E03 /* magic_reaf_attack.plist in Resources */,
+				2A7BFB991556D29B00B93E03 /* magic_particle.plist in Resources */,
+				2A7BFB9C1556D2AC00B93E03 /* unselect.png in Resources */,
+				2A7BFB9D1556D2AC00B93E03 /* selected.png in Resources */,
+				2A7BFB9F1556D2CC00B93E03 /* Battle1.jpg in Resources */,
+				2A7BFBA11556D2E100B93E03 /* enemy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
