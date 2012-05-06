@@ -58,7 +58,7 @@ int const MAGIC_AREA = 50;
 -(void) ready
 {
     // プレーヤの状態を初期化
-    [self updatePlayerStatus];
+    [self initPlayerStatus];
     // とりあえず仮に魔法コマンドの配列を作る
     // 暫定0
     magicCommand = [player.skill.hasSkill objectAtIndex:0];
@@ -81,7 +81,7 @@ int const MAGIC_AREA = 50;
         [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
     }
     
-    [self updateSkillStatus];
+    [self initSkillStatus];
 }
 //-(void) draw
 //{
@@ -197,7 +197,7 @@ int const MAGIC_AREA = 50;
 }
 -(void) changeTurn
 {
-    [self updatePlayerStatus];
+    [self initPlayerStatus];
     currentCommand=0;
     // 暫定的にかわずたんのターン
     CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_reaf_attack.plist"];
@@ -225,6 +225,15 @@ int const MAGIC_AREA = 50;
                               (768)
                               );
 }
+
+-(void) initPlayerStatus
+{
+    [self updatePlayerStatus];
+    [self addChild:hpLabel];
+    [self addChild:mpLabel];
+    [self addChild:msLabel];
+}
+
 -(void) updatePlayerStatus
 {
     CCDirector* director = [CCDirector sharedDirector];
@@ -237,7 +246,7 @@ int const MAGIC_AREA = 50;
                                        fontName:@"Ubuntu-C.ttf" 
                                        fontSize:fontSize];
     hpLabel.position = ccp(100, 650);
-    [self addChild:hpLabel];
+
     // 魔法ポイント
     NSString* mp = @"Magic:";
     mp = [mp stringByAppendingString: [NSString stringWithFormat:@"%d", player.mp]];
@@ -245,7 +254,6 @@ int const MAGIC_AREA = 50;
                                  fontName:@"Ubuntu-C.ttf" 
                                  fontSize:fontSize];
     mpLabel.position = ccp(100, 600);
-    [self addChild:mpLabel];
     // 魔法スロット
     NSString* ms = @"Slot:";
     ms = [ms stringByAppendingString: [NSString stringWithFormat:@"%d", player.ms]];
@@ -253,8 +261,18 @@ int const MAGIC_AREA = 50;
                                  fontName:@"Ubuntu-C.ttf" 
                                  fontSize:fontSize];
     msLabel.position = ccp(100, 550);
-    [self addChild:msLabel];
     // 属性
+    
+}
+
+-(void) initSkillStatus
+{
+    [self updateSkillStatus];
+    [self addChild:skillTypeLabel];
+    [self addChild:skillNameLabel];
+    [self addChild:skillDetailLabel];
+    [self addChild:attackPointLabel];
+    [self addChild:useMpLabel];
     
 }
 
@@ -271,7 +289,7 @@ int const MAGIC_AREA = 50;
                                  fontName:@"Ubuntu-C.ttf" 
                                  fontSize:fontSize];
     skillTypeLabel.position = ccp(100, 450);
-    [self addChild:skillTypeLabel];
+
     // スキル名
     NSString* skillName = @"SkillName:";
     skillName = [skillType stringByAppendingString: magicCommand.skillName];
@@ -281,7 +299,6 @@ int const MAGIC_AREA = 50;
                                         fontName:@"HiraKakuProN-W3" 
                                         fontSize:fontSize];
     skillNameLabel.position = ccp(100, 400);
-    [self addChild:skillNameLabel];
     
     // スキル詳細
     NSString* skillDetail = @"SkillDetail:";
@@ -292,7 +309,6 @@ int const MAGIC_AREA = 50;
                                         fontName:@"HiraKakuProN-W3" 
                                         fontSize:fontSize];
     skillDetailLabel.position = ccp(100, 350);
-    [self addChild:skillDetailLabel];
     
     // 攻撃力
     NSString* attackPoint = @"AttackPoint:";
@@ -301,7 +317,6 @@ int const MAGIC_AREA = 50;
                                         fontName:@"Ubuntu-C.ttf" 
                                         fontSize:fontSize];
     attackPointLabel.position = ccp(100, 300);
-    [self addChild:attackPointLabel];
     
     // 使用MP
     NSString* useMp = @"UseMP:";
@@ -310,7 +325,6 @@ int const MAGIC_AREA = 50;
                                           fontName:@"Ubuntu-C.ttf" 
                                           fontSize:fontSize];
     useMpLabel.position = ccp(100, 250);
-    [self addChild:useMpLabel];
     
 }
 

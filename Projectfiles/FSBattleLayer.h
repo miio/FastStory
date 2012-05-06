@@ -28,7 +28,9 @@
 extern int const MAGIC_AREA;
 @property (readwrite) FSPlayerModel* player;
 -(void) ready;
+-(void) initPlayerStatus;
 -(void) updatePlayerStatus;
+-(void) initSkillStatus;
 -(void) updateSkillStatus;
 -(void) changeTurn;
 -(void) effectWater;
