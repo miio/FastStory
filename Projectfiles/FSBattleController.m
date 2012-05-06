@@ -21,10 +21,12 @@
         
         // 自身のパラメータをviewにセットする
         view.player = player.model;
+        
         //FSPlayerController player = [[FSPlayerController alloc] init];
         
         
         [self addChild:view];
+        [view ready];
     }
     return self;
 }

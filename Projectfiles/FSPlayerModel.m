@@ -7,7 +7,16 @@
 //
 
 #import "FSPlayerModel.h"
-
+#import "FSUserSkillModel.h"
 @implementation FSPlayerModel
-
+@synthesize skill;
+-(id) init
+{
+    if ((self = [super init]))
+    {
+        FSUserSkillModel* modelObj = [[FSUserSkillModel alloc] init];
+        self.skill = modelObj;
+    }
+    return self;
+}
 @end

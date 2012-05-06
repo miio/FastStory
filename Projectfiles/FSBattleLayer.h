@@ -7,16 +7,18 @@
 //
 #import "CCLayer.h"
 #import "FSPlayerModel.h"
+#import "FSSkillModel.h"
 @interface FSBattleLayer : CCLayer
 {
     FSPlayerModel* player;
-    NSArray* magicCommand;
+    FSSkillModel* magicCommand;
     int currentCommand;
     NSMutableArray* magicPointer;
 
 }
 extern int const MAGIC_AREA;
 @property (readwrite) FSPlayerModel* player;
+-(void) ready;
 -(void) updatePlayerStatus;
 -(void) changeTurn;
 -(void) effectWater;

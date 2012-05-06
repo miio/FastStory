@@ -46,65 +46,65 @@ int const MAGIC_AREA = 50;
 		// play sound with CocosDenshion's SimpleAudioEngine
 		//[[SimpleAudioEngine sharedEngine] playEffect:@"Pow.caf"];
         
-        // とりあえず仮に魔法コマンドの配列を作る
-        magicCommand = [[NSArray alloc] initWithObjects:[NSValue valueWithCGPoint:CGPointMake(300, 200)],
-                                 [NSValue valueWithCGPoint:CGPointMake(500, 500)],
-                                 [NSValue valueWithCGPoint:CGPointMake(650, 450)],
-                                 [NSValue valueWithCGPoint:CGPointMake(250, 400)],
-                                 nil];
-        currentCommand = 0;
-        
-        // とりあえず敵出現エフェクトとして
-        CCParticleExplosion *particle = [[CCParticleExplosion alloc]init];
-        particle.texture = [[CCTextureCache sharedTextureCache] addImage:@"ship.png"];
-        particle.position = ccp(450, 300);
-        particle.speed = 500;
-        [self addChild:particle];
-        
-        // マーカー初期化
-        magicPointer =  [NSMutableArray array];
-        for (int i = 0; i < ([magicCommand count]); i++) {
-            CCSprite* backdrop = [CCSprite spriteWithFile: @"unselect.png"];
-            
-            CGPoint p = [[magicCommand objectAtIndex:i] CGPointValue];
-            [backdrop setPosition:ccp(p.x + (MAGIC_AREA / 2), p.y + (MAGIC_AREA / 2))];
-            [magicPointer addObject:backdrop];
-            [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
-        }
+
 	}
     
 	return self;
 }
--(void) draw
+-(void) ready
 {
-
+    // とりあえず仮に魔法コマンドの配列を作る
+    // 暫定0
+    magicCommand = [player.skill.hasSkill objectAtIndex:0];
+    currentCommand = 0;
+    // とりあえず敵出現エフェクトとして
+    CCParticleExplosion *particle = [[CCParticleExplosion alloc]init];
+    particle.texture = [[CCTextureCache sharedTextureCache] addImage:@"ship.png"];
+    particle.position = ccp(450, 300);
+    particle.speed = 500;
+    [self addChild:particle];
     
-    // 魔法コマンド用のポインタを作成する  
-    glEnable(GL_LINE_SMOOTH);
-    
-    
-    
-    glLineWidth(2);
-    //for (id object in magicCommand) {
-    for (int i = 0; i <= ([magicCommand count]-1); i++) {
-        CGPoint p = [[magicCommand objectAtIndex:i] CGPointValue];
-        CGPoint vertices2[] = { 
-            ccp(p.x + MAGIC_AREA, p.y + 0),
-            ccp(p.x + MAGIC_AREA, p.y + MAGIC_AREA),
-            ccp(p.x + 0, p.y + MAGIC_AREA),
-            ccp(p.x + 0, p.y + 0) 
-        };
+    // マーカー初期化
+    magicPointer =  [NSMutableArray array];
+    for (int i = 0; i < ([magicCommand.magicPointer count]); i++) {
+        CCSprite* backdrop = [CCSprite spriteWithFile: @"unselect.png"];
         
-        if (currentCommand < i+1) {
-            glColor4ub(255, 0, 255, 255);
-        } else {
-            glColor4ub(255, 255, 255, 255); 
-        }
-        ccDrawPoly(vertices2, 4, YES);
-
-    }
-    
+        CGPoint p = [[magicCommand.magicPointer objectAtIndex:i] CGPointValue];
+        [backdrop setPosition:ccp(p.x + (MAGIC_AREA / 2), p.y + (MAGIC_AREA / 2))];
+        [magicPointer addObject:backdrop];
+        [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
+    }  
 }
+//-(void) draw
+//{
+//
+//    
+//    // 魔法コマンド用のポインタを作成する  
+//    glEnable(GL_LINE_SMOOTH);
+//    
+//    
+//    
+//    glLineWidth(2);
+//    //for (id object in magicCommand) {
+//    for (int i = 0; i <= ([magicCommand count]-1); i++) {
+//        CGPoint p = [[magicCommand objectAtIndex:i] CGPointValue];
+//        CGPoint vertices2[] = { 
+//            ccp(p.x + MAGIC_AREA, p.y + 0),
+//            ccp(p.x + MAGIC_AREA, p.y + MAGIC_AREA),
+//            ccp(p.x + 0, p.y + MAGIC_AREA),
+//            ccp(p.x + 0, p.y + 0) 
+//        };
+//        
+//        if (currentCommand < i+1) {
+//            glColor4ub(255, 0, 255, 255);
+//        } else {
+//            glColor4ub(255, 255, 255, 255); 
+//        }
+//        ccDrawPoly(vertices2, 4, YES);
+//
+//    }
+//    
+//}
 
 //-(CGPoint*) getMagicCommandArea:(CGPoint) p{
 //    CGPoint vertices[] = { 
@@ -125,9 +125,9 @@ int const MAGIC_AREA = 50;
     int offY = location.y;
     
     NSLog(@"%d %d", offX, offY);
-    if(currentCommand <= [magicCommand count]-1) {
+    if(currentCommand <= [magicCommand.magicPointer count]-1) {
 
-    CGPoint p = [[magicCommand objectAtIndex:currentCommand] CGPointValue];
+    CGPoint p = [[magicCommand.magicPointer objectAtIndex:currentCommand] CGPointValue];
     CGRect aRect = CGRectMake(
                               (p.x),
                               (p.y),
@@ -147,7 +147,7 @@ int const MAGIC_AREA = 50;
         [self removeChild:current cleanup:FALSE];
         [magicPointer replaceObjectAtIndex:currentCommand withObject:markerCurrent];
         [self addChild:markerCurrent];
-        if(currentCommand >= [magicCommand count]-1) {
+        if(currentCommand >= [magicCommand.magicPointer count]-1) {
             //最終要素なら攻撃！
             CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
             particle.position = ccp(200, 0);
@@ -191,10 +191,10 @@ int const MAGIC_AREA = 50;
     // 暫定的に戻す
     // マーカー初期化
     magicPointer =  [NSMutableArray array];
-    for (int i = 0; i < ([magicCommand count]); i++) {
+    for (int i = 0; i < ([magicCommand.magicPointer count]); i++) {
         CCSprite* backdrop = [CCSprite spriteWithFile: @"unselect.png"];
         
-        CGPoint p = [[magicCommand objectAtIndex:i] CGPointValue];
+        CGPoint p = [[magicCommand.magicPointer objectAtIndex:i] CGPointValue];
         [backdrop setPosition:ccp(p.x + (MAGIC_AREA / 2), p.y + (MAGIC_AREA / 2))];
         [magicPointer addObject:backdrop];
         [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];

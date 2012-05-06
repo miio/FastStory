@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FSUserSkillModel.h"
 @interface FSPlayerModel : NSObject
-
+{
+    FSUserSkillModel* skill;
+}
+@property (readwrite) FSUserSkillModel* skill;
 @end
