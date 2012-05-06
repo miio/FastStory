@@ -2,8 +2,10 @@
 //  FSBattleLayer.m
 //  FastStory
 //
+//  バトル関係のLayer
+//
 //  Created by miio mitani on 12/05/05.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 Kawaz. All rights reserved.
 //
 #import "FSPlayerModel.h"
 #import "FSBattleLayer.h"
@@ -40,8 +42,7 @@ int const MAGIC_AREA = 50;
         sprite.position = ccp(900, 600);
 		[self addChild:sprite];
 
-        // プレーヤの状態を初期化
-        [self updatePlayerStatus];
+
 		// play sound with CocosDenshion's SimpleAudioEngine
         
         // ステージの音をならしてみる
@@ -56,6 +57,8 @@ int const MAGIC_AREA = 50;
 }
 -(void) ready
 {
+    // プレーヤの状態を初期化
+    [self updatePlayerStatus];
     // とりあえず仮に魔法コマンドの配列を作る
     // 暫定0
     magicCommand = [player.skill.hasSkill objectAtIndex:0];
@@ -227,8 +230,8 @@ int const MAGIC_AREA = 50;
     CCDirector* director = [CCDirector sharedDirector];
     float fontSize = (director.currentDeviceIsIPad) ? 48 : 28;
     // 体力
-    NSString* hp = @"HP:100";
-    CCLabelTTF* hpLabel = nil;
+    NSString* hp = @"HP:";
+    hp = [hp stringByAppendingString: [NSString stringWithFormat:@"%d", player.hp]];
     
     hpLabel = [CCLabelTTF labelWithString:hp
                                        fontName:@"Ubuntu-C.ttf" 
@@ -236,16 +239,16 @@ int const MAGIC_AREA = 50;
     hpLabel.position = ccp(100, 650);
     [self addChild:hpLabel];
     // 魔法ポイント
-    NSString* mp = @"Magic:200";
-    CCLabelTTF* mpLabel = nil;
+    NSString* mp = @"Magic:";
+    mp = [mp stringByAppendingString: [NSString stringWithFormat:@"%d", player.mp]];
     mpLabel = [CCLabelTTF labelWithString:mp
                                  fontName:@"Ubuntu-C.ttf" 
                                  fontSize:fontSize];
     mpLabel.position = ccp(100, 600);
     [self addChild:mpLabel];
     // 魔法スロット
-    NSString* ms = @"Slot:3";
-    CCLabelTTF* msLabel = nil;
+    NSString* ms = @"Slot:";
+    ms = [ms stringByAppendingString: [NSString stringWithFormat:@"%d", player.ms]];
     msLabel = [CCLabelTTF labelWithString:ms
                                  fontName:@"Ubuntu-C.ttf" 
                                  fontSize:fontSize];

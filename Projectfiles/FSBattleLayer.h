@@ -14,6 +14,9 @@
     FSSkillModel* magicCommand;
     int currentCommand;
     NSMutableArray* magicPointer;
+    CCLabelTTF* hpLabel;
+    CCLabelTTF* mpLabel;
+    CCLabelTTF* msLabel;
     CCLabelTTF* skillTypeLabel;
     CCLabelTTF* skillNameLabel;
     CCLabelTTF* skillDetailLabel;

@@ -11,6 +11,12 @@
 @interface FSPlayerModel : NSObject
 {
     FSUserSkillModel* skill;
+    int hp;
+    int mp;
+    int ms;
 }
 @property (readwrite) FSUserSkillModel* skill;
+@property (readwrite) int hp;
+@property (readwrite) int mp;
+@property (readwrite) int ms;
 @end
