@@ -20,6 +20,7 @@ extern int const MAGIC_AREA;
 @property (readwrite) FSPlayerModel* player;
 -(void) ready;
 -(void) updatePlayerStatus;
+-(void) updateSkillStatus;
 -(void) changeTurn;
 -(void) effectWater;
 //-(CGPoint*) getMagicCommandArea;

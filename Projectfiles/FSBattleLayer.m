@@ -8,7 +8,6 @@
 #import "FSPlayerModel.h"
 #import "FSBattleLayer.h"
 #import "SimpleAudioEngine.h"
-
 @implementation FSBattleLayer
 @synthesize player;
 // 魔法コマンドタッチエリアの大きさ
@@ -73,7 +72,9 @@ int const MAGIC_AREA = 50;
         [backdrop setPosition:ccp(p.x + (MAGIC_AREA / 2), p.y + (MAGIC_AREA / 2))];
         [magicPointer addObject:backdrop];
         [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
-    }  
+    }
+    
+    [self updateSkillStatus];
 }
 //-(void) draw
 //{
@@ -241,6 +242,56 @@ int const MAGIC_AREA = 50;
     // 属性
     
 }
+
+-(void) updateSkillStatus
+{
+    CCDirector* director = [CCDirector sharedDirector];
+    float fontSize = (director.currentDeviceIsIPad) ? 28 : 14;
+    // 属性
+    NSString* skillType = @"SkillType:";
+    skillType = [skillType stringByAppendingString: [NSString stringWithFormat:@"%d", magicCommand.skillType]];
+    CCLabelTTF* skillTypeLabel = nil;
+    
+    skillTypeLabel = [CCLabelTTF labelWithString:skillType
+                                 fontName:@"Ubuntu-C.ttf" 
+                                 fontSize:fontSize];
+    skillTypeLabel.position = ccp(100, 450);
+    [self addChild:skillTypeLabel];
+    // スキル名
+    NSString* skillName = @"SkillName:";
+    skillName = [skillType stringByAppendingString: magicCommand.skillName];
+    CCLabelTTF* skillNameLabel = nil;
+    
+    skillNameLabel = [CCLabelTTF labelWithString:skillName
+                                        fontName:@"HiraKakuProN-W3" 
+                                        fontSize:fontSize];
+    skillNameLabel.position = ccp(100, 400);
+    [self addChild:skillNameLabel];
+    
+    // スキル詳細
+    NSString* skillDetail = @"SkillDetail:";
+    skillDetail = [skillDetail stringByAppendingString: magicCommand.skillDetail];
+    CCLabelTTF* skillDetailLabel = nil;
+    
+    skillDetailLabel = [CCLabelTTF labelWithString:skillDetail
+                                        fontName:@"HiraKakuProN-W3" 
+                                        fontSize:fontSize];
+    skillDetailLabel.position = ccp(100, 350);
+    [self addChild:skillDetailLabel];
+    
+    // 攻撃力
+    NSString* attackPoint = @"AttackPoint:";
+    attackPoint = [attackPoint stringByAppendingString: [NSString stringWithFormat:@"%d", magicCommand.attackPoint]];
+    CCLabelTTF* attackPointLabel = nil;
+    
+    attackPointLabel = [CCLabelTTF labelWithString:attackPoint
+                                        fontName:@"Ubuntu-C.ttf" 
+                                        fontSize:fontSize];
+    attackPointLabel.position = ccp(100, 300);
+    [self addChild:attackPointLabel];
+    
+}
+
 -(void) updateTurnStatus
 {
     // 対象者名
