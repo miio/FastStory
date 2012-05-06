@@ -125,7 +125,8 @@ int const MAGIC_AREA = 50;
 //}
 -(void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent *)event
 {
-    
+    // TODO: タッチイベントに関していえば、完全にControllerに丸投げするのがきっと理想な気がする
+    // Controllerで適切に判定し、Layer側のエフェクトメソッドを叩くのが正解な気がします
     UITouch *touch =[touches anyObject];
     CGPoint location =[touch locationInView:[touch view]];
     location =[[CCDirector sharedDirector] convertToGL:location];
