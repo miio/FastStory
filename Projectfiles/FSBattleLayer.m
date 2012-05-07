@@ -58,6 +58,10 @@ int const MAGIC_AREA = 50;
     
 	return self;
 }
+
+/**
+ * 初期化メソッド
+ */
 -(void) ready
 {
     // プレーヤの状態を初期化
@@ -79,6 +83,9 @@ int const MAGIC_AREA = 50;
     [self initSkillStatus];
 }
 
+/**
+ * 魔法ポインタを作成する
+ */
 -(void) createPointer
 {
     magicPointer =  [NSMutableArray array];
@@ -138,6 +145,10 @@ int const MAGIC_AREA = 50;
     
 }
 
+/**
+ * マジックポインタをタッチしたときのアクションを行う
+ * @param   CGPoint p   タッチ位置情報
+ */
 -(void) enterTouchMarker:(CGPoint) p
 {
     // タップエフェクトとして！
@@ -157,6 +168,10 @@ int const MAGIC_AREA = 50;
     [self addChild:markerCurrent];
 }
 
+/**
+ * 攻撃エフェクト
+ * @todo このエフェクトに関してはプレーヤが保持するべきな気がする
+ */
 -(void) enterAttack
 {
     CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
@@ -180,12 +195,21 @@ int const MAGIC_AREA = 50;
                afterDelay:10
      ];
 }
+
+/**
+ * 水属性の攻撃エフェクト
+ */
 -(void) effectWater
 {
+    // パーティクルオブジェクトを生成して実行する
     CCParticleSystemQuad *particle2 = [CCParticleSystemQuad particleWithFile:@"magic_water_attack.plist"];
-    particle2.position = ccp(450, 300);
+    particle2.position = ccp(450, 300); // @todo 座標はとりあえず決めうちになってる
     [self addChild:particle2];
 }
+
+/**
+ * ターンを変更する際の画面状態の変更
+ */
 -(void) changeTurn
 {
     [self initPlayerStatus];
@@ -216,6 +240,10 @@ int const MAGIC_AREA = 50;
         [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
     }
 }
+
+/**
+ * @Deprecated
+ */
 -(void) damageEffect
 {
     CGRect aRect = CGRectMake(
@@ -226,11 +254,17 @@ int const MAGIC_AREA = 50;
                               );
 }
 
+/**
+ * プレーヤの状態の描画を初期化する
+ */
 -(void) initPlayerStatus
 {
     [self updatePlayerStatus];
 }
 
+/**
+ * プレーヤの状態の描画を更新する
+ */
 -(void) updatePlayerStatus
 {
     [self removeChild:hpLabel cleanup:TRUE];
@@ -267,11 +301,17 @@ int const MAGIC_AREA = 50;
     [self addChild:msLabel];
 }
 
+/**
+ * スキル情報の描画を初期化する
+ */
 -(void) initSkillStatus
 {
     [self updateSkillStatus];
 }
 
+/**
+ * スキル情報の描画を更新する
+ */
 -(void) updateSkillStatus
 {
     [self removeChild:skillTypeLabel cleanup:TRUE];

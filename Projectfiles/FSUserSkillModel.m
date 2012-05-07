@@ -44,6 +44,7 @@
                                [NSValue valueWithCGPoint:CGPointMake(250, 300)],
                                nil];
         
+        // プレーヤの持つスキルとして追加する
         hasSkill = [[NSMutableArray alloc] initWithObjects:skill0,
                         skill1,
                         skill2,

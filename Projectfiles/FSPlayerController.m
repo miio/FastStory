@@ -3,7 +3,7 @@
 //  FastStory
 //
 //  Created by miio mitani on 12/05/05.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 Kawaz. All rights reserved.
 //
 
 #import "FSPlayerController.h"
