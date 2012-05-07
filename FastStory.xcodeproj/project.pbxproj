@@ -27,6 +27,7 @@
 		2A7BFB9D1556D2AC00B93E03 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB9B1556D2AC00B93E03 /* selected.png */; };
 		2A7BFB9F1556D2CC00B93E03 /* Battle1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFB9E1556D2CC00B93E03 /* Battle1.jpg */; };
 		2A7BFBA11556D2E100B93E03 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7BFBA01556D2E100B93E03 /* enemy.png */; };
+		2A7BFBB41558150D00B93E03 /* FSBattleUIMagicPointerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7BFBB31558150D00B93E03 /* FSBattleUIMagicPointerLayer.m */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -116,6 +117,8 @@
 		2A7BFB9B1556D2AC00B93E03 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		2A7BFB9E1556D2CC00B93E03 /* Battle1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Battle1.jpg; sourceTree = "<group>"; };
 		2A7BFBA01556D2E100B93E03 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		2A7BFBB21558150D00B93E03 /* FSBattleUIMagicPointerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBattleUIMagicPointerLayer.h; sourceTree = "<group>"; };
+		2A7BFBB31558150D00B93E03 /* FSBattleUIMagicPointerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBattleUIMagicPointerLayer.m; sourceTree = "<group>"; };
 		DC1BE68614F417CC00F49D25 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		DC1BE68914F417CC00F49D25 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 		2A5ECA2A15552FD300A81D0D /* BattleUI */ = {
 			isa = PBXGroup;
 			children = (
+				2A7BFBB21558150D00B93E03 /* FSBattleUIMagicPointerLayer.h */,
+				2A7BFBB31558150D00B93E03 /* FSBattleUIMagicPointerLayer.m */,
 			);
 			name = BattleUI;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				2A5ECA7C1555506C00A81D0D /* FSBattlePlayerController.m in Sources */,
 				2A5ECA91155693B200A81D0D /* FSUserSkillModel.m in Sources */,
 				2A5ECAA115569D9B00A81D0D /* FSSkillModel.m in Sources */,
+				2A7BFBB41558150D00B93E03 /* FSBattleUIMagicPointerLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

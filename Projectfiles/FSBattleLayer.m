@@ -42,6 +42,9 @@ int const MAGIC_AREA = 50;
         sprite.position = ccp(900, 600);
 		[self addChild:sprite];
 
+        // マジックポインタレイヤーを生成
+        magicPointerLayer = [[FSBattleUIMagicPointerLayer alloc] init];
+        [self addChild:magicPointerLayer];
 
 		// play sound with CocosDenshion's SimpleAudioEngine
         
@@ -70,7 +73,14 @@ int const MAGIC_AREA = 50;
     particle.speed = 500;
     [self addChild:particle];
     
-    // マーカー初期化
+    // ポインター初期化
+    [self createPointer];
+    
+    [self initSkillStatus];
+}
+
+-(void) createPointer
+{
     magicPointer =  [NSMutableArray array];
     for (int i = 0; i < ([magicCommand.magicPointer count]); i++) {
         CCSprite* backdrop = [CCSprite spriteWithFile: @"unselect.png"];
@@ -79,50 +89,9 @@ int const MAGIC_AREA = 50;
         [backdrop setPosition:ccp(p.x + (MAGIC_AREA / 2), p.y + (MAGIC_AREA / 2))];
         [magicPointer addObject:backdrop];
         [self addChild:[magicPointer objectAtIndex:[magicPointer count]-1]];
-    }
-    
-    [self initSkillStatus];
+    }   
 }
-//-(void) draw
-//{
-//
-//    
-//    // 魔法コマンド用のポインタを作成する  
-//    glEnable(GL_LINE_SMOOTH);
-//    
-//    
-//    
-//    glLineWidth(2);
-//    //for (id object in magicCommand) {
-//    for (int i = 0; i <= ([magicCommand count]-1); i++) {
-//        CGPoint p = [[magicCommand objectAtIndex:i] CGPointValue];
-//        CGPoint vertices2[] = { 
-//            ccp(p.x + MAGIC_AREA, p.y + 0),
-//            ccp(p.x + MAGIC_AREA, p.y + MAGIC_AREA),
-//            ccp(p.x + 0, p.y + MAGIC_AREA),
-//            ccp(p.x + 0, p.y + 0) 
-//        };
-//        
-//        if (currentCommand < i+1) {
-//            glColor4ub(255, 0, 255, 255);
-//        } else {
-//            glColor4ub(255, 255, 255, 255); 
-//        }
-//        ccDrawPoly(vertices2, 4, YES);
-//
-//    }
-//    
-//}
 
-//-(CGPoint*) getMagicCommandArea:(CGPoint) p{
-//    CGPoint vertices[] = { 
-//        CGPointMake(p.x + MAGIC_AREA, p.y + 0),
-//        CGPointMake(p.x + MAGIC_AREA, p.y + MAGIC_AREA),
-//        CGPointMake(p.x + 0, p.y + MAGIC_AREA),
-//        CGPointMake(p.x + 0, p.y + 0) 
-//    };
-//    return vertices;
-//}
 -(void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent *)event
 {
     // TODO: タッチイベントに関していえば、完全にControllerに丸投げするのがきっと理想な気がする
@@ -144,25 +113,11 @@ int const MAGIC_AREA = 50;
                               (MAGIC_AREA)
                               );
     //CGRect スプライトRect = [self rectForSprite:スプライト];
+    [self enterTouchMarker:p];
     if(CGRectContainsPoint(aRect, location)) {
-        // タップエフェクトとして！
-        CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_particle.plist"];
-        particle.position = ccp(p.x + (MAGIC_AREA /2), p.y + (MAGIC_AREA /2));
-        [self addChild:particle];
-        
-        // SE再生
-        // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
-        // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_kagayaku01.mp3
-        [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_kagayaku01.mp3"];
-        // マーカー書き換え
-        CCSprite* markerCurrent = [CCSprite spriteWithFile: @"selected.png"];
-        CCSprite* current = [magicPointer objectAtIndex:currentCommand];
-        [self removeChild:current cleanup:FALSE];
-        [magicPointer replaceObjectAtIndex:currentCommand withObject:markerCurrent];
-        [self addChild:markerCurrent];
+
         if(currentCommand >= [magicCommand.magicPointer count]-1) {
             //最終要素なら攻撃！
-            
             // 攻撃によるパラメータ変更
             // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
             // MPを消費する
@@ -171,33 +126,59 @@ int const MAGIC_AREA = 50;
             // パラメータ変更が入ったのでViewのユーザステータスを更新
             [self updatePlayerStatus];
             
-            CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
-            particle.position = ccp(200, 0);
-            [self addChild:particle];
-            // SE再生
-            // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
-            // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_hosikuzu01.mp3
-            [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_hosikuzu01.mp3"];
-            [self performSelector:@selector(effectWater)
-             // パーティクルが終わってから
-             // 呼ばれる引数なしメソッドの例
-                       withObject:nil // メソッドの引数なし
-                       afterDelay:5
-             ];
+            // 攻撃エフェクト
+            [self enterAttack];
 
-            [self performSelector:@selector(changeTurn)
-             // パーティクルが終わってから
-             // 呼ばれる引数なしメソッドの例
-                       withObject:nil // メソッドの引数なし
-                       afterDelay:10
-             ];
         }
-            currentCommand+=1;
+        currentCommand+=1;
 
     }
     }
 
     
+}
+
+-(void) enterTouchMarker:(CGPoint) p
+{
+    // タップエフェクトとして！
+    CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_particle.plist"];
+    particle.position = ccp(p.x + (MAGIC_AREA /2), p.y + (MAGIC_AREA /2));
+    [self addChild:particle];
+    
+    // SE再生
+    // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
+    // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_kagayaku01.mp3
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_kagayaku01.mp3"];
+    // マーカー書き換え
+    CCSprite* markerCurrent = [CCSprite spriteWithFile: @"selected.png"];
+    CCSprite* current = [magicPointer objectAtIndex:currentCommand];
+    [self removeChild:current cleanup:FALSE];
+    [magicPointer replaceObjectAtIndex:currentCommand withObject:markerCurrent];
+    [self addChild:markerCurrent];
+}
+
+-(void) enterAttack
+{
+    CCParticleSystemQuad *particle = [CCParticleSystemQuad particleWithFile:@"magic_success.plist"];
+    particle.position = ccp(200, 0);
+    [self addChild:particle];
+    // SE再生
+    // refs: http://www.yen-soft.com/ssse/sound/ta.php#se
+    // refs: http://www.yen-soft.com/ssse/sound/se/z/ta_ta_hosikuzu01.mp3
+    [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_hosikuzu01.mp3"];
+    [self performSelector:@selector(effectWater)
+     // パーティクルが終わってから
+     // 呼ばれる引数なしメソッドの例
+               withObject:nil // メソッドの引数なし
+               afterDelay:5
+     ];
+    
+    [self performSelector:@selector(changeTurn)
+     // パーティクルが終わってから
+     // 呼ばれる引数なしメソッドの例
+               withObject:nil // メソッドの引数なし
+               afterDelay:10
+     ];
 }
 -(void) effectWater
 {

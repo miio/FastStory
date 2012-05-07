@@ -8,12 +8,14 @@
 #import "CCLayer.h"
 #import "FSPlayerModel.h"
 #import "FSSkillModel.h"
+#import "FSBattleUIMagicPointerLayer.h"
 @interface FSBattleLayer : CCLayer
 {
     FSPlayerModel* player;
     FSSkillModel* magicCommand;
     int currentCommand;
     NSMutableArray* magicPointer;
+    FSBattleUIMagicPointerLayer* magicPointerLayer;
     CCLabelTTF* hpLabel;
     CCLabelTTF* mpLabel;
     CCLabelTTF* msLabel;
