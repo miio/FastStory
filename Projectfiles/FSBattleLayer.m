@@ -121,25 +121,25 @@ int const MAGIC_AREA = 50;
                               );
     //CGRect スプライトRect = [self rectForSprite:スプライト];
     [self enterTouchMarker:p];
-    if(CGRectContainsPoint(aRect, location)) {
+        if(CGRectContainsPoint(aRect, location)) {
 
-        if(currentCommand >= [magicCommand.magicPointer count]-1) {
-            //最終要素なら攻撃！
-            // 攻撃によるパラメータ変更
-            // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
-            // MPを消費する
-            player.mp -= magicCommand.useMp;
-            
-            // パラメータ変更が入ったのでViewのユーザステータスを更新
-            [self updatePlayerStatus];
-            
-            // 攻撃エフェクト
-            [self enterAttack];
+            if(currentCommand >= [magicCommand.magicPointer count]-1) {
+                //最終要素なら攻撃！
+                // 攻撃によるパラメータ変更
+                // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
+                // MPを消費する
+                player.mp -= magicCommand.useMp;
+
+                // パラメータ変更が入ったのでViewのユーザステータスを更新
+                [self updatePlayerStatus];
+
+                // 攻撃エフェクト
+                [self enterAttack];
+
+            }
+            currentCommand+=1;
 
         }
-        currentCommand+=1;
-
-    }
     }
 
     
