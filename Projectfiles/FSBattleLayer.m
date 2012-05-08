@@ -120,10 +120,12 @@ int const MAGIC_AREA = 50;
                               (MAGIC_AREA)
                               );
     //CGRect スプライトRect = [self rectForSprite:スプライト];
-    [self enterTouchMarker:p];
-        if(CGRectContainsPoint(aRect, location)) {
 
-            if(currentCommand >= [magicCommand.magicPointer count]-1) {
+        if(CGRectContainsPoint(aRect, location)) {
+            currentCommand+=1;
+            [self enterTouchMarker:p];
+
+            if(currentCommand > [magicCommand.magicPointer count]-1) {
                 //最終要素なら攻撃！
                 // 攻撃によるパラメータ変更
                 // TODO: ここはViewよりもControllerのお仕事のため、このあたりはリファクタリングしたほうがいいと思う
@@ -137,7 +139,7 @@ int const MAGIC_AREA = 50;
                 [self enterAttack];
 
             }
-            currentCommand+=1;
+
 
         }
     }
@@ -162,9 +164,9 @@ int const MAGIC_AREA = 50;
     [[SimpleAudioEngine sharedEngine] playEffect:@"ta_ta_kagayaku01.mp3"];
     // マーカー書き換え
     CCSprite* markerCurrent = [CCSprite spriteWithFile: @"selected.png"];
-    CCSprite* current = [magicPointer objectAtIndex:currentCommand];
+    CCSprite* current = [magicPointer objectAtIndex:currentCommand-1];
     [self removeChild:current cleanup:FALSE];
-    [magicPointer replaceObjectAtIndex:currentCommand withObject:markerCurrent];
+    [magicPointer replaceObjectAtIndex:currentCommand-1 withObject:markerCurrent];
     [self addChild:markerCurrent];
 }
 
